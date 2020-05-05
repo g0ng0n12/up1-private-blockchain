@@ -72,7 +72,7 @@ class Blockchain {
                     let previousBlock = await self.getBlockByHeight(currentHeight)
                     block.previousBlockHash = previousBlock.hash;
                 }
-                block.time = new Date.getTime().toString().slice(0, -3);
+                block.time = new Date().getTime().toString().slice(0, -3);
                 block.height = self.chain.length;
                 block.hash = SHA256(JSON.stringify(block)).toString();
                 self.height = self.height + 1;
